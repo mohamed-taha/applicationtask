@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="Site-page">
+{% load static from staticfiles %}
+{% load custom_filter %}
+<head>
+		<link href="{% static 'style.css' %}" rel="stylesheet">
+		<link href="{% static 'libs/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'libs/bootstrap/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+        <script src="{% static 'libs/js/jquery.min.js' %}"></script>
+</head>
+<body>
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <ul class="nav nav-pills" role="tablist">
+            {% if detail %}
+                <li role="presentation" class="{% is_active request 'Site_detail' detail.id %}"><a href="{% url 'Site_list' %}">Home</a></li>
+            {% else %}
+                <li role="presentation" class="{% is_active request 'Site_list' %}"><a href="{% url 'Site_list' %}">Home</a></li>
+            {% endif %}
+            <li class="dropdown {% is_active request 'Site_summary' %}">
+              <a href="{% url 'Site_summary'%}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Summary <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class=" {% is_active request 'Site_summary' %}"><a href="{% url 'Site_summary'%}">Sum</a></li>
+                <li class=" {% is_active request 'Site_average' %}"><a href="{% url 'Site_average'%}">Average</a></li>
+              </ul>
+            </li>
+        </ul>
+      </nav>
+    <div class="container">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+    <script src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

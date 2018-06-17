@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-12">
+    <h1>Sites</h1>
+    {% if result|length > 0 %}
+    <ul class="list-group">
+        {% for row in result %}
+            <li class="list-group-item"><a href="{% url 'Site_detail' row.id %}">{{row.name}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <strong>Sorry!</strong> No, Site avilable.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

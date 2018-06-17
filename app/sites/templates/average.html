@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load custom_filter %}
+{% block content %}
+<div class="col-md-12">
+    <h1>Summary</h1>
+    {% if result|length > 0 %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>A value</th>
+                    <th>B value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result %}
+                    <tr>
+                        <td>{{row.name}}</td>
+                        <td>{{row.value_site|getAverage:'a_value'}}</td>
+                        <td>{{row.value_site|getAverage:'b_value'}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <strong>Sorry!</strong> No, Data added for this Site. Please contact site owner for any query.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
