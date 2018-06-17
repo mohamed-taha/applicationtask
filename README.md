@@ -21,11 +21,12 @@ The task is to develop an application as shown on http://applicationtask.herokua
 Following Step need to follow:
 1. Git clone this code at your system
 2. pip install -r requirements.txt
-3. Create admin users
+3. Run the migration ``` python manae.py migrate ```
+4. Create admin users
 ``` python manage.py createsuperuser```
-4. Run the application by: ```python manage.py runserver```
-5. Login to admin section by /admin
-6. Go to Sites and add some sites and the value for each sites
+5. Run the application by: ```python manage.py runserver```
+6. Login to admin section by /admin
+7. Go to Sites and add some sites and the value for each sites
 
 Now you can see the changes on front-end
 Note: As per the requirement mention I used raw SQL.

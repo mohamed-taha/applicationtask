@@ -2,7 +2,7 @@
 {% block content %}
 <div class="col-md-12">
     <h1>Sites</h1>
-    {% if result|length > 0 %}
+    {% if result %}
     <ul class="list-group">
         {% for row in result %}
             <li class="list-group-item"><a href="{% url 'Site_detail' row.id %}">{{row.name}}</a></li>
