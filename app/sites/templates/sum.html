@@ -16,8 +16,8 @@
                 {% for row in result %}
                     <tr>
                         <td>{{row.name}}</td>
-                        <td>{{row.value_site|getSum:'a_value'}}</td>
-                        <td>{{row.value_site|getSum:'b_value'}}</td>
+                        <td>{{row.value_site__a_value__sum}}</td>
+                        <td>{{row.value_site__b_value__sum}}</td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -16,8 +16,8 @@
                 {% for row in result %}
                     <tr>
                         <td>{{row.name}}</td>
-                        <td>{{row.value_site|getAverage:'a_value'}}</td>
-                        <td>{{row.value_site|getAverage:'b_value'}}</td>
+                        <td>{{row.value_site__a_value__avg}}</td>
+                        <td>{{row.value_site__b_value__avg}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
